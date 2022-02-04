@@ -12,8 +12,8 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import Button from '@material-ui/core/Button'
 import Nav from './nav'
- 
 
 const useStyle = makeStyles(theme => ({
   title:{
@@ -217,7 +217,31 @@ const useStyle = makeStyles(theme => ({
  descriptionServiceP2:{
   'padding': 'justify',
   'text-justify': 'inter-word'
- }
+ },
+ Inquiry:{
+  'margin-top': '90px',
+  'height': 'auto',
+  'text-align': 'center',
+  'background-color': '#cacaca',
+  'padding': '21px',
+  'color': 'black'
+  },
+  
+  InquiryButtn:{
+    'background-color': '#e30505',
+    'color': '#fff',
+    'padding': '11px 34px',
+  },
+  InquiryText:{
+    'margin-bottom': '14px',
+    'font-size': '19px',
+    [theme.breakpoints.down('md')]: {
+      'font-size': '15px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      'font-size': '12px',
+    }
+  },
 
   
 })
@@ -233,7 +257,7 @@ export default function Index() {
           <Box>
              <Box className = {classes.backgroundImageBox}>
                  <Container>
-                  <Box className = {classes.backgroundImageBoxTypo}> Student</Box>
+                  <Box className = {classes.backgroundImageBoxTypo}> Immigration </Box>
                  </Container>
              </Box>
           </Box>
@@ -249,98 +273,28 @@ export default function Index() {
                   <Container>
                       <Box>
                         <Typography className={classes.descriptionServiceP1}>
-                          Educational opportunities are manifold in various countries such as USA, UK, Canada, Poland, Latvia, Switzerland, New*
-                          Zealand, Australia, Ireland, Dubai, Singapore and Malaysia and so forth which not only enrich you intellectually, but als
-                          o provide  with a qualifying professional degree that will fetch you a higher standard of living. Students struggle hard 
-                          to reach the shores of countries that are well known for their educational institutions and universities. They aspire
-                          to study in the best colleges and universities of the world; nevertheless to study abroad is not all that easy as one 
-                          has to secure student visas of that respectiv e country. Why so?
-
+                        Every year many people settle abroad with the purpose of good quality life. The country has a world-class education system with opportunities for all age groups and levels of ability.
                         </Typography>
                         <Typography className={classes.descriptionServiceP2}>
-                          Necessary documentation requirements are there for issuing of visa.
-                          The visa process adheres to certain visa guidelines laid down by a respective country.
-                          One has to acquire all related information pertaining to visa processing so that one does not miss out on any related 
-                          documentation that could delay the visa process.
-                          To resolve all issues pertaining to documentation in order to process the student visa it would be better to approach 
-                          Shree Sai Immigration to seek necessary guidance and advice.
+                         Shree Sai Immigration offers immigration service after reviewing your profile. So Hurry, get your immigration process start and move abroad with Shree Sai Immigratio                      
+                        </Typography>
+                        <Typography className={classes.descriptionServiceP2}>
+                          Send your resume on enquiry@ssikutch.com for initial assessment.               
                         </Typography>
                       </Box>
                   </Container>
               </Box>
 
-             <Box className={classes.chooseYourDreamBoxTitle}>
-                <Typography className={classes.chooseYourDreamBoxTitleTitle}>Want to Study Abroad ?</Typography>
-             </Box>
+              <Box >
 
-             <Box className={classes.contryListe}>
-
-                <Container className={classes.centPerCentDisplay}>
-                    <Box className={classes.contryListeBox}>
-                      
-                    <Grid container>
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./can.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./alm.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./aus.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./bel.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./esp.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./fr.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./bra.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./lon.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./usa.png'}/>
-                         </Box>
-                       </Grid>
-
-                       
-                       
-                    </Grid>
-
-                    </Box>
+                <Container className = {classes.Inquiry}>
+                    <Box className = {classes.InquiryText}> To resolve all issues pertaining to documentation in order to process the student visa 
+                        it would be better to approach Shree Sai Immigration to seek necessary guidan and advice.
+                      </Box>
+                      <Button className = {classes.InquiryButtn}>Inquiry</Button>
                 </Container>
-
              </Box>
+
 
              <Box className={classes.footer}>
                <Container >

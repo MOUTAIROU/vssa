@@ -12,6 +12,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import Nav from './nav'
 
  
 
@@ -46,12 +47,33 @@ const useStyle = makeStyles(theme => ({
   'justify-content': 'center',
   'align-items': 'center',
   color: '#fff',
+  [theme.breakpoints.down('md')]: {
+    'height': '40vh',
+  },
+  [theme.breakpoints.down('sm')]: {
+    'height': '40vh',
+  },
+  
+  
  },
  backgroundImageBoxTypo:{
-   fontSize:"40px"
+   fontSize:"40px",
+   [theme.breakpoints.down('md')]: {
+    'font-size': '1.5rem',
+  },
+  [theme.breakpoints.down('sm')]: {
+    'font-size': '1rem',
+  },
+
  },
  ourService:{
-  height: '380px'
+  height: '380px',
+  [theme.breakpoints.down('md')]: {
+    height: 'auto',
+  },
+  [theme.breakpoints.down('sm')]: {
+    height: 'auto'
+  },
  },
  ourserviceContainer:{
   height: '340px',
@@ -64,6 +86,16 @@ const useStyle = makeStyles(theme => ({
    overflow: 'hidden',
    'background-position': 'center',
    'background-size': 'cover',
+   [theme.breakpoints.down('md')]: {
+    marginTop: '-30px',
+    height: 'auto',
+    'padding-bottom': '54px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    marginTop: '-30px',
+    height: 'auto',
+    'padding-bottom':'54px'
+  },
  },
  centPerCent:{
   height: '100%'
@@ -113,8 +145,18 @@ const useStyle = makeStyles(theme => ({
  ourserviceContainerItemImage:{
     '& img':{
       height: '150px',
-      width: '150px'
+      width: '150px',
+      [theme.breakpoints.down('md')]: {
+        'width': '100px',
+        'height': '100px'
+      },
+      [theme.breakpoints.down('sm')]: {
+        'width': '100px',
+        'height': '100px'
+      }
     }
+    
+    
   
  },
  ourserviceContainerItemDesText:{
@@ -152,7 +194,13 @@ const useStyle = makeStyles(theme => ({
  },
  contryListe: {
   height: '300px',
-  'margin-bottom': '50px'
+  'margin-bottom': '50px',
+  [theme.breakpoints.down('md')]: {
+    height: 'auto',
+  },
+  [theme.breakpoints.down('sm')]: {
+    height: 'auto',
+  }
  },
  contryListeBox:{
   width: '100%',
@@ -178,7 +226,13 @@ const useStyle = makeStyles(theme => ({
  footerBoxGridTitle : {
   'font-size': '25px',
   color: '#e30505',
-  'font-weight': 'bold'
+  'font-weight': 'bold',
+  [theme.breakpoints.down('md')]: {
+    'font-size': '20px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    'font-size': '20px',
+  }
  },
  footerBoxGridListText: {
   'padding': '16px 0px',
@@ -192,9 +246,15 @@ const useStyle = makeStyles(theme => ({
   'font-size': '15px'
  },
  footerBox:{
-  'margin-bottom': '20px'
+  'margin-bottom': '20px',
+  [theme.breakpoints.down('md')]: {
+    'text-align': 'center',
+  },
+  [theme.breakpoints.down('sm')]: {
+    'text-align': 'center',
+  }
  }
-  
+ 
 })
 )
 
@@ -203,84 +263,7 @@ export default function Index() {
   return (
       <div className = 'wrapper'>
 
-          <nav className={classes.navBar}>
-               
-                  <Box className={classes.navBarContact}>
-                    <Container maxWidth='lg' className={classes.centPerCent}>
-                        <Grid container  className={classes.centPerCent}>
-                  
-                                <Grid  xs={3}  className={classes.centPerCent}>
-                                  <Grid container className={classes.centPerCentDisplay}>
-                                      
-                                       <Grid xs={2}><PhoneIcon/></Grid>
-                                       <Grid xs={10}>xxxxx@gmail.com</Grid>
-                                  </Grid>
-                                </Grid>
-
-                                <Grid  xs={3}  className={classes.centPerCent}>
-                                  <Grid container className={classes.centPerCentDisplay}>
-                                      
-                                       <Grid xs={2}><EmailIcon/></Grid>
-                                       <Grid xs={10}>6363782937893</Grid>
-                                  </Grid>
-                                </Grid>
-
-                                
-                                <Grid item xs={6}>
-                                  
-                                  <Grid container className={classes.centPerCentDisplay}>
-
-                                       <Grid xs={10}></Grid>
-                                       <Grid xs={2} className={classes.iconSocialMedia}>
-                                          <InstagramIcon sx={{ fontSize: 30 }}/>
-                                          <FacebookIcon sx={{ fontSize: 30 }}/>
-                                       </Grid>
-                                       
-                                  </Grid>
-                                </Grid>
-                                
-
-                        </Grid>
-                     </Container>
-                  </Box>
-                  <Box className={classes.navBarMenu}>
-                     <Container maxWidth='lg' className={classes.centPerCent}>
-                        <Grid container className={classes.centPerCent}>
-
-                            <Grid item xs={6} className={classes.centPerCent}>
-                               <Box className={classes.listMenuNavBarLogo}>toto</Box>
-                            </Grid>
-
-                            <Grid item xs={6}>
-                                  <Grid container className={classes.centPerCent}>
-
-                                        <Grid item xs={2} className={classes.listMenuNavBar}></Grid>
-
-                                        <Grid item xs={2} className={classes.listMenuNavBar}>
-                                          Home
-                                        </Grid>
-                                        <Grid item xs={2} className={classes.listMenuNavBar}>
-                                          Our services
-                                        </Grid>
-                                        <Grid item xs={2} className={classes.listMenuNavBar}>
-                                          About Us
-                                        </Grid>
-                                        <Grid item xs={2} className={classes.listMenuNavBar}>
-                                          Visa stamp
-                                        </Grid>
-                                        <Grid item xs={2} className={classes.listMenuNavBar}>
-                                          Contact us
-                                        </Grid>
-
-                                  </Grid>
-                            </Grid>
-
-
-                        </Grid>
-                        </Container>
-                  </Box>
-               
-          </nav>
+          <Nav/>
 
           <Box>
              <Box className = {classes.backgroundImageBox}>
@@ -297,7 +280,7 @@ export default function Index() {
                  <Box >
                     <Grid container>
  
-                      <Grid item xs={3} className={classes.ourserviceContainerItem}>
+                      <Grid item  xs={12} sm={6} md={6} lg={3} className={classes.ourserviceContainerItem}>
                           <Box className={classes.ourserviceContainerItemImage}>
                              <img src={'./student.png'}/>
                            </Box>
@@ -306,7 +289,7 @@ export default function Index() {
                            </Box>
                       </Grid>
 
-                      <Grid item xs={3} className={classes.ourserviceContainerItem}>
+                      <Grid item xs={12} sm={6} md={6} lg={3} className={classes.ourserviceContainerItem}>
                           <Box className={classes.ourserviceContainerItemImage}>
                              <img src={'./migration.png'}/>
                            </Box>
@@ -315,7 +298,7 @@ export default function Index() {
                            </Box>
                       </Grid>
 
-                      <Grid item xs={3} className={classes.ourserviceContainerItem}>
+                      <Grid item xs={12} sm={6} md={6} lg={3} className={classes.ourserviceContainerItem}>
                           <Box className={classes.ourserviceContainerItemImage}>
                              <img src={'./tourist.png'}/>
                            </Box>
@@ -324,7 +307,7 @@ export default function Index() {
                            </Box>
                       </Grid>
 
-                      <Grid item xs={3} className={classes.ourserviceContainerItem}>
+                      <Grid item xs={12} sm={6}  md={6} lg={3} className={classes.ourserviceContainerItem}>
                           <Box className={classes.ourserviceContainerItemImage}>
                              <img src={'./work.png'}/>
                            </Box>
@@ -351,7 +334,7 @@ export default function Index() {
                    
                     <Grid container  className={classes.centPerCent}>
 
-                      <Grid item xs={4} className={classes.customerReviewItem}>
+                      <Grid item  xs={12} sm={12} md={4} lg={4} className={classes.customerReviewItem}>
                           <Box className={classes.customerReviewItemTypo}>
 
                             <Typography> "
@@ -369,7 +352,7 @@ export default function Index() {
                            </Box>
                       </Grid>
 
-                      <Grid item xs={4} className={classes.customerReviewItem}>
+                      <Grid item xs={12} sm={12} md={4} lg={4} className={classes.customerReviewItem}>
                           <Box className={classes.customerReviewItemTypo}>
 
                             <Typography> "
@@ -387,7 +370,7 @@ export default function Index() {
                            </Box>
                       </Grid>
 
-                      <Grid item xs={4} className={classes.customerReviewItem}>
+                      <Grid item xs={12} sm={12} md={4} lg={4} className={classes.customerReviewItem}>
                           <Box className={classes.customerReviewItemTypo}>
 
                             <Typography> "
@@ -424,55 +407,55 @@ export default function Index() {
                     <Box className={classes.contryListeBox}>
                       
                     <Grid container>
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
+                       <Grid  xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./can.png'}/>
                          </Box>
                        </Grid>
 
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
+                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./alm.png'}/>
                          </Box>
                        </Grid>
 
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
+                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./aus.png'}/>
                          </Box>
                        </Grid>
 
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
+                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./bel.png'}/>
                          </Box>
                        </Grid>
 
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
+                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./esp.png'}/>
                          </Box>
                        </Grid>
 
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
+                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./fr.png'}/>
                          </Box>
                        </Grid>
 
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
+                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./bra.png'}/>
                          </Box>
                        </Grid>
 
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
+                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./lon.png'}/>
                          </Box>
                        </Grid>
 
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
+                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./usa.png'}/>
                          </Box>
@@ -491,10 +474,10 @@ export default function Index() {
                <Container >
                     <Box className={classes.footerBox}>
                           <Grid container>
-                              <Grid xs={4} className={classes.footerBoxGrid}>
+                              <Grid  xs={12} lg={4} className={classes.footerBoxGrid}>
                                 <Box className={classes.footerBoxGridTitle}> YOU ARE VISITOR EMAIL</Box>
                               </Grid>
-                              <Grid xs={4} className={classes.footerBoxGrid}>
+                              <Grid xs={12} lg={4} className={classes.footerBoxGrid}>
                               <Box className={classes.footerBoxGridTitle}> OUR REVIEWS</Box>
                                 <Box className={classes.footerBoxGridListText}>Student Visa</Box>
                                 <Box  className={classes.footerBoxGridListText}>Visitor Visa</Box>
@@ -502,7 +485,7 @@ export default function Index() {
                                 <Box  className={classes.footerBoxGridListText}>Immigration</Box>
                                 <Box  className={classes.footerBoxGridListText}>IELTS Training</Box>
                               </Grid>
-                              <Grid xs={4} className={classes.footerBoxGrid}>
+                              <Grid xs={12} lg={4} className={classes.footerBoxGrid}>
                               <Box className={classes.footerBoxGridTitle}> Reach Us</Box>
                               <Box  className={classes.footerBoxGridListTextAdress}> 
                                 G-1, Anjali Tower, Opp. Rameshwar

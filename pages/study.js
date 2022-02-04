@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
 import ProTip from '../src/ProTip';
 import Link from '../src/Link';
 import Copyright from '../src/Copyright';
@@ -12,6 +13,8 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { useRouter } from 'next/router'
+import {student} from '../variable.js'
 import Nav from './nav'
  
 
@@ -217,14 +220,103 @@ const useStyle = makeStyles(theme => ({
  descriptionServiceP2:{
   'padding': 'justify',
   'text-justify': 'inter-word'
- }
+ },
+ desContent:{
+  color: '#000',
+  'margin-top': '100px',
+ },
+ desContentGridBoxTitle: {
+  'font-size': '40px',
+  [theme.breakpoints.down('md')]: {
+    'font-size': '22px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    'font-size': '20px',
+  }
+ },
+ desContentGridBoxUl:{
+   '& li':{
+    'margin-bottom': '11px',
+    'font-size': '17px',
+   }
+ },
+
+ Inquiry:{
+  'margin-top': '90px',
+  'height': 'auto',
+  'text-align': 'center',
+  'background-color': '#cacaca',
+  'padding': '21px',
+  'color': 'black'
+},
+
+InquiryText:{
+  'margin-bottom': '14px',
+  'font-size': '19px',
+  [theme.breakpoints.down('md')]: {
+    'font-size': '16px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    'font-size': '14px',
+  }
+},
+InquiryButtn:{
+  'background-color': '#e30505',
+  'color': '#fff',
+  'padding': '11px 34px',
+},
+desContentGridBoxUl:{
+  [theme.breakpoints.down('md')]: {
+    'font-size': '15px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    'font-size': '12px',
+  }
+}
 
   
 })
 )
 
-export default function Index() {
+export default function Index(props) {
   const classes = useStyle()
+  const router = useRouter()
+  
+  const [left_data_array,setLeft_data_array] = useState([])
+  const [right_data_array,setRight_data_array] = useState([])
+  const [usa_text,setUsa_text] = useState('')
+  
+  
+
+  useEffect(() =>{
+    
+    const words = router.asPath.split('=')
+
+    const country = words[1]
+    
+   
+    let usa_text =  student[`${country}_text`]
+    let left_data = student[`${country}_left`]
+    let right_data = student[`${country}_right`]
+    setUsa_text(usa_text)
+    
+  
+    const propertyValues_left_data = Object.values(left_data);
+
+    setLeft_data_array(propertyValues_left_data)
+    const propertyValues_right_data = Object.values(right_data);
+
+    setRight_data_array(propertyValues_right_data)
+  
+    
+  },[])
+  
+
+ 
+  
+
+  
+
   return (
       <div className = 'wrapper'>
 
@@ -233,7 +325,7 @@ export default function Index() {
           <Box>
              <Box className = {classes.backgroundImageBox}>
                  <Container>
-                  <Box className = {classes.backgroundImageBoxTypo}> Student</Box>
+                  <Box className = {classes.backgroundImageBoxTypo}> {usa_text}</Box>
                  </Container>
              </Box>
           </Box>
@@ -245,104 +337,62 @@ export default function Index() {
 
           <Box className={classes.chooseYourDreamBox}>
 
-              <Box className={classes.descriptionService}>
-                  <Container>
-                      <Box>
-                        <Typography className={classes.descriptionServiceP1}>
-                          Educational opportunities are manifold in various countries such as USA, UK, Canada, Poland, Latvia, Switzerland, New*
-                          Zealand, Australia, Ireland, Dubai, Singapore and Malaysia and so forth which not only enrich you intellectually, but als
-                          o provide  with a qualifying professional degree that will fetch you a higher standard of living. Students struggle hard 
-                          to reach the shores of countries that are well known for their educational institutions and universities. They aspire
-                          to study in the best colleges and universities of the world; nevertheless to study abroad is not all that easy as one 
-                          has to secure student visas of that respectiv e country. Why so?
+              <Box className={classes.desContent}>
+                  
+                   <Container>
+                            <Grid container  className = {classes.desContentGrid}>
+                              <Grid xs={12} sm={12} md={12} lg={6} className = {classes.desContentGridBox}>
+                                  <Box className = {classes.desContentGridBoxTitle}>{left_data_array[0]}</Box>
+                                  <Box className = {classes.desContentGridBoxUi}>
+                                      <ul className = {classes.desContentGridBoxUl}>
 
-                        </Typography>
-                        <Typography className={classes.descriptionServiceP2}>
-                          Necessary documentation requirements are there for issuing of visa.
-                          The visa process adheres to certain visa guidelines laid down by a respective country.
-                          One has to acquire all related information pertaining to visa processing so that one does not miss out on any related 
-                          documentation that could delay the visa process.
-                          To resolve all issues pertaining to documentation in order to process the student visa it would be better to approach 
-                          Shree Sai Immigration to seek necessary guidance and advice.
-                        </Typography>
-                      </Box>
-                  </Container>
+                                        {
+                                            left_data_array.map((item,index) => {
+                                               if(index != 0) {
+                                                return(
+                                                  <li>{item}</li>
+                                                )
+                                               }
+                                            })
+                                        }
+                                        
+                                        
+                                      </ul>
+                                  </Box>
+                              </Grid>
+                              <Grid xs={12} sm={12} md={12} lg={6} className = {classes.desContentGridBox}>
+                                  <Box className = {classes.desContentGridBoxTitle}>{right_data_array[0]}</Box>
+                                  <Box className = {classes.desContentGridBoxUi}>
+                                      <ul className = {classes.desContentGridBoxUl}>
+                                        
+                                      {
+                                            right_data_array.map((item,index) => {
+                                               if(index != 0) {
+                                                return (
+                                                  <li>{item}</li>
+                                                )
+                                               }
+                                            })
+                                        }
+
+                                      </ul>
+                                  </Box>
+                              </Grid>
+                            </Grid>
+                   </Container>
               </Box>
 
-             <Box className={classes.chooseYourDreamBoxTitle}>
-                <Typography className={classes.chooseYourDreamBoxTitleTitle}>Want to Study Abroad ?</Typography>
-             </Box>
+              <Box >
 
-             <Box className={classes.contryListe}>
+                    <Container className = {classes.Inquiry}>
+                         <Box className = {classes.InquiryText}> To resolve all issues pertaining to documentation in order to process the student visa 
+                             it would be better to approach Shree Sai Immigration to seek necessary guidan and advice.
+                          </Box>
+                          <Button className = {classes.InquiryButtn}>Inquiry</Button>
+                   </Container>
+              </Box>
 
-                <Container className={classes.centPerCentDisplay}>
-                    <Box className={classes.contryListeBox}>
-                      
-                    <Grid container>
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./can.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./alm.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./aus.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./bel.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./esp.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./fr.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./bra.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./lon.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./usa.png'}/>
-                         </Box>
-                       </Grid>
-
-                       
-                       
-                    </Grid>
-
-                    </Box>
-                </Container>
-
-             </Box>
-
-             <Box className={classes.footer}>
+              <Box className={classes.footer}>
                <Container >
                     <Box className={classes.footerBox}>
                           <Grid container>

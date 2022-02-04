@@ -3,6 +3,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
 import ProTip from '../src/ProTip';
 import Link from '../src/Link';
 import Copyright from '../src/Copyright';
@@ -12,8 +13,8 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import TextField from '@mui/material/TextField';
 import Nav from './nav'
- 
 
 const useStyle = makeStyles(theme => ({
   title:{
@@ -217,8 +218,83 @@ const useStyle = makeStyles(theme => ({
  descriptionServiceP2:{
   'padding': 'justify',
   'text-justify': 'inter-word'
- }
+ },
+ desContent:{
+  color: '#000',
+  'margin-top': '100px',
+ },
+ desContentGridBoxTitle: {
+  'font-size': '40px'
+ },
+ desContentGridBoxUl:{
+   '& li':{
+    'margin-bottom': '11px',
+    'font-size': '17px'
+   }
+ },
 
+ Inquiry:{
+  'margin-top': '90px',
+  'height': 'auto',
+  'text-align': 'center',
+  'padding': '21px',
+  'color': 'black',
+  [theme.breakpoints.down('xs')]: {
+    'margin-top': '0px',
+  }
+},
+InquiryText:{
+  'margin-bottom': '14px',
+  'font-size': '19px',
+  [theme.breakpoints.down('md')]: {
+    'font-size': '15px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    'font-size': '12px',
+  }
+},
+InquiryButtn:{
+  'background-color': '#e30505',
+  'color': '#fff',
+  'padding': '11px 34px',
+},
+contactFormTile_1: {
+  'text-align': 'center',
+  'font-size': '29px',
+},
+contactFormTile:{
+  'text-align': 'center',
+  'padding': '10px'
+},
+contactFormContentGrid: {
+  'margin-top': '100px',
+  'margin-bottom': '50px',
+  [theme.breakpoints.down('xs')]: {
+     'margin-bottom': '-34px'
+  }
+  
+},
+contactFormContentInputCnt : {
+  'padding': '0px 10px',
+  '&:last-child': {
+    
+    [theme.breakpoints.down('xs')]: {
+      'margin-bottom': '46px',
+    }
+    
+  }
+
+  
+},
+contactFormContentInputCnt_:{
+  'padding': '0px 10px',
+  'margin': '50px 0px',
+},
+
+contactFormContentInputCntInput : {
+  'width': '100%',
+  'background-color': '#fff'
+}
   
 })
 )
@@ -245,104 +321,67 @@ export default function Index() {
 
           <Box className={classes.chooseYourDreamBox}>
 
-              <Box className={classes.descriptionService}>
-                  <Container>
-                      <Box>
-                        <Typography className={classes.descriptionServiceP1}>
-                          Educational opportunities are manifold in various countries such as USA, UK, Canada, Poland, Latvia, Switzerland, New*
-                          Zealand, Australia, Ireland, Dubai, Singapore and Malaysia and so forth which not only enrich you intellectually, but als
-                          o provide  with a qualifying professional degree that will fetch you a higher standard of living. Students struggle hard 
-                          to reach the shores of countries that are well known for their educational institutions and universities. They aspire
-                          to study in the best colleges and universities of the world; nevertheless to study abroad is not all that easy as one 
-                          has to secure student visas of that respectiv e country. Why so?
+              <Box className={classes.desContent}>
+                  
+                   <Container>
 
-                        </Typography>
-                        <Typography className={classes.descriptionServiceP2}>
-                          Necessary documentation requirements are there for issuing of visa.
-                          The visa process adheres to certain visa guidelines laid down by a respective country.
-                          One has to acquire all related information pertaining to visa processing so that one does not miss out on any related 
-                          documentation that could delay the visa process.
-                          To resolve all issues pertaining to documentation in order to process the student visa it would be better to approach 
-                          Shree Sai Immigration to seek necessary guidance and advice.
-                        </Typography>
+                      <Box className={classes.contactForm}>
+                            <Box className={classes.contactFormTile_1}>Inquiry</Box>
+                            <Box className={classes.contactFormTile}>Fill up the given details we'll get in touch with you</Box>
+                            <Box className={classes.contactFormTile}>We guide you to your goal. We deliver our proficiency in solving all your career related problems</Box>
+                            <Box className={classes.contactFormTile}>When it comes to Immigration, our expertise can be trusted</Box>
+
+                            <Box className={classes.contactFormContent}>
+                               <Grid container className={classes.contactFormContentGrid}>
+                                  <Grid xs = {12} lg={6} sm={6} md={6} >
+                                     <Box className={classes.contactFormContentInputCnt}>
+                                       <TextField 
+                                           className = {classes.contactFormContentInputCntInput}
+                                          id="outlined-basic" label="Name" variant="outlined" />
+                                      </Box>
+                                  </Grid>
+                                  <Grid xs = {12} lg={6} sm={6} md={6}>
+                                     <Box className={classes.contactFormContentInputCnt}>
+                                        <TextField 
+                                         className = {classes.contactFormContentInputCntInput}
+                                        id="outlined-basic" label="E-mail" variant="outlined" />
+                                      </Box>
+                                  </Grid>
+                               </Grid>
+                               <Box className={classes.contactFormContentInputCnt_}>
+                                  <TextField
+                                   className = {classes.contactFormContentInputCntInput}
+                                    id="outlined-basic" label="Subject" variant="outlined" />
+                                </Box>
+                               <Box className={classes.contactFormContentInputCnt_}>
+                                  <TextField
+                                   className = {classes.contactFormContentInputCntInput}
+                                    id="outlined-basic" label="Contact" variant="outlined" />
+                                </Box>
+                               <Box className={classes.contactFormContentInputCnt_}>
+                                  <TextField 
+                                  className = {classes.contactFormContentInputCntInput}
+                                  id="outlined-basic"
+                                  label="Message"
+                                  variant="outlined"
+                                  multiline
+                                  rows={4} />
+                                </Box>
+                            </Box>
                       </Box>
-                  </Container>
+                            
+                   </Container>
               </Box>
 
-             <Box className={classes.chooseYourDreamBoxTitle}>
-                <Typography className={classes.chooseYourDreamBoxTitleTitle}>Want to Study Abroad ?</Typography>
-             </Box>
+              <Box >
 
-             <Box className={classes.contryListe}>
+                    <Container className = {classes.Inquiry}>
+                         
+                          <Button className = {classes.InquiryButtn}>Inquiry</Button>
+                   </Container>
+              </Box>
 
-                <Container className={classes.centPerCentDisplay}>
-                    <Box className={classes.contryListeBox}>
-                      
-                    <Grid container>
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./can.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./alm.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./aus.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./bel.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./esp.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./fr.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./bra.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./lon.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./usa.png'}/>
-                         </Box>
-                       </Grid>
-
-                       
-                       
-                    </Grid>
-
-                    </Box>
-                </Container>
-
-             </Box>
-
-             <Box className={classes.footer}>
+              <Box className={classes.footer}>
                <Container >
                     <Box className={classes.footerBox}>
                           <Grid container>

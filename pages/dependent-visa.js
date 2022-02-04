@@ -3,17 +3,10 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid'
-import ProTip from '../src/ProTip';
-import Link from '../src/Link';
 import Copyright from '../src/Copyright';
 import { makeStyles } from "@material-ui/core/styles";
-import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
-import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import Button from '@material-ui/core/Button'
 import Nav from './nav'
- 
 
 const useStyle = makeStyles(theme => ({
   title:{
@@ -174,6 +167,7 @@ const useStyle = makeStyles(theme => ({
  footer: {
   margin: '92px 0px',
  },
+ 
  footerBoxGridTitle : {
   'font-size': '25px',
   color: '#e30505',
@@ -217,7 +211,30 @@ const useStyle = makeStyles(theme => ({
  descriptionServiceP2:{
   'padding': 'justify',
   'text-justify': 'inter-word'
- }
+ },
+ Inquiry:{
+  'margin-top': '90px',
+  'height': 'auto',
+  'text-align': 'center',
+  'background-color': '#cacaca',
+  'padding': '21px',
+  'color': 'black'
+  },
+  InquiryText:{
+    'margin-bottom': '14px',
+    'font-size': '19px',
+    [theme.breakpoints.down('md')]: {
+      'font-size': '15px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      'font-size': '12px',
+    }
+  },
+  InquiryButtn:{
+    'background-color': '#e30505',
+    'color': '#fff',
+    'padding': '11px 34px',
+  }
 
   
 })
@@ -233,7 +250,7 @@ export default function Index() {
           <Box>
              <Box className = {classes.backgroundImageBox}>
                  <Container>
-                  <Box className = {classes.backgroundImageBoxTypo}> Student</Box>
+                  <Box className = {classes.backgroundImageBoxTypo}> Dependent Visa </Box>
                  </Container>
              </Box>
           </Box>
@@ -249,100 +266,27 @@ export default function Index() {
                   <Container>
                       <Box>
                         <Typography className={classes.descriptionServiceP1}>
-                          Educational opportunities are manifold in various countries such as USA, UK, Canada, Poland, Latvia, Switzerland, New*
-                          Zealand, Australia, Ireland, Dubai, Singapore and Malaysia and so forth which not only enrich you intellectually, but als
-                          o provide  with a qualifying professional degree that will fetch you a higher standard of living. Students struggle hard 
-                          to reach the shores of countries that are well known for their educational institutions and universities. They aspire
-                          to study in the best colleges and universities of the world; nevertheless to study abroad is not all that easy as one 
-                          has to secure student visas of that respectiv e country. Why so?
+                        Shree Sai Immigration provide VISA services for Dependent VISAS. A person is dependent on another person if the person is wholly or substantially reliant on the other person for financial support to fulfill basic needs like food, clothing and shelter, In case person willing to travel/transfer abroad comes under Dependent VISA category. Our Dependent VISA service for Spouse VISA, Dependent VISA, Family VISA and Child VISA comes under the category of Dependent VISA. Dependent VISA application is simple and success depends on the genuine intent and proper documentation. As far as there is dependent family visa is split into several sub-categories providing information.
 
                         </Typography>
                         <Typography className={classes.descriptionServiceP2}>
-                          Necessary documentation requirements are there for issuing of visa.
-                          The visa process adheres to certain visa guidelines laid down by a respective country.
-                          One has to acquire all related information pertaining to visa processing so that one does not miss out on any related 
-                          documentation that could delay the visa process.
-                          To resolve all issues pertaining to documentation in order to process the student visa it would be better to approach 
-                          Shree Sai Immigration to seek necessary guidance and advice.
+                        So Hurry, get your Dependent visa process start & approach Shree Sai Immigration to seek necessary guidance and advice.
                         </Typography>
                       </Box>
                   </Container>
               </Box>
 
-             <Box className={classes.chooseYourDreamBoxTitle}>
-                <Typography className={classes.chooseYourDreamBoxTitleTitle}>Want to Study Abroad ?</Typography>
-             </Box>
+              <Box >
 
-             <Box className={classes.contryListe}>
+                  <Container className = {classes.Inquiry}>
+                      <Box className = {classes.InquiryText}> To resolve all issues pertaining to documentation in order to process the student visa 
+                          it would be better to approach Shree Sai Immigration to seek necessary guidan and advice.
+                        </Box>
+                        <Button className = {classes.InquiryButtn}>Inquiry</Button>
+                  </Container>
+              </Box>
 
-                <Container className={classes.centPerCentDisplay}>
-                    <Box className={classes.contryListeBox}>
-                      
-                    <Grid container>
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./can.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./alm.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./aus.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./bel.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./esp.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./fr.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./bra.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./lon.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./usa.png'}/>
-                         </Box>
-                       </Grid>
-
-                       
-                       
-                    </Grid>
-
-                    </Box>
-                </Container>
-
-             </Box>
-
-             <Box className={classes.footer}>
+              <Box className={classes.footer}>
                <Container >
                     <Box className={classes.footerBox}>
                           <Grid container>

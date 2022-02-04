@@ -12,8 +12,8 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import Button from '@material-ui/core/Button'
 import Nav from './nav'
- 
 
 const useStyle = makeStyles(theme => ({
   title:{
@@ -212,12 +212,36 @@ const useStyle = makeStyles(theme => ({
  descriptionServiceP1:{
   'margin-bottom': '40px',
   'text-align': 'justify',
-  'text-justify': 'inter-word'
+  'text-justify': 'inter-word',
  },
  descriptionServiceP2:{
   'padding': 'justify',
-  'text-justify': 'inter-word'
- }
+  'text-justify': 'inter-word',
+  'margin-bottom': '20px',
+ },
+ Inquiry:{
+  'margin-top': '90px',
+  'height': 'auto',
+  'text-align': 'center',
+  'background-color': '#cacaca',
+  'padding': '21px',
+  'color': 'black'
+  },
+  InquiryText:{
+    'margin-bottom': '14px',
+    'font-size': '19px',
+    [theme.breakpoints.down('md')]: {
+      'font-size': '15px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      'font-size': '12px',
+    }
+  },
+  InquiryButtn:{
+    'background-color': '#e30505',
+    'color': '#fff',
+    'padding': '11px 34px',
+  }
 
   
 })
@@ -233,7 +257,7 @@ export default function Index() {
           <Box>
              <Box className = {classes.backgroundImageBox}>
                  <Container>
-                  <Box className = {classes.backgroundImageBoxTypo}> Student</Box>
+                  <Box className = {classes.backgroundImageBoxTypo}> Immigration </Box>
                  </Container>
              </Box>
           </Box>
@@ -249,100 +273,69 @@ export default function Index() {
                   <Container>
                       <Box>
                         <Typography className={classes.descriptionServiceP1}>
-                          Educational opportunities are manifold in various countries such as USA, UK, Canada, Poland, Latvia, Switzerland, New*
-                          Zealand, Australia, Ireland, Dubai, Singapore and Malaysia and so forth which not only enrich you intellectually, but als
-                          o provide  with a qualifying professional degree that will fetch you a higher standard of living. Students struggle hard 
-                          to reach the shores of countries that are well known for their educational institutions and universities. They aspire
-                          to study in the best colleges and universities of the world; nevertheless to study abroad is not all that easy as one 
-                          has to secure student visas of that respectiv e country. Why so?
-
+                          British Council Authorised Exam Registration Centre to Register IELTS Test. We Are Providing IELTS Coaching Through Trained Staff with Latest Unlimited Practice Material Which is Provided to us by British Council of India.                        </Typography>
+                        <Typography className={classes.descriptionServiceP2}>
+                         What is IELTS ?
                         </Typography>
                         <Typography className={classes.descriptionServiceP2}>
-                          Necessary documentation requirements are there for issuing of visa.
-                          The visa process adheres to certain visa guidelines laid down by a respective country.
-                          One has to acquire all related information pertaining to visa processing so that one does not miss out on any related 
-                          documentation that could delay the visa process.
-                          To resolve all issues pertaining to documentation in order to process the student visa it would be better to approach 
-                          Shree Sai Immigration to seek necessary guidance and advice.
+                        IELTS, the International English Language Testing System, is designed to assess the language ability of candidates who need to study or work where English is used as the language of communication. It covers the four language skills – listening, reading, writing and speaking.
                         </Typography>
+                        <Typography className={classes.descriptionServiceP2}>
+                        ELTS has two modules:<b>General Training and Academic</b> . The General Training module is usually taken by people who want to emigrate, and the Academic module is taken by people who want to study abroad. It is essential that you check with the receiving country or institution to find out which module you need to take. It is your responsibility to choose the right module.            
+                        </Typography>
+
+                        <Typography className={classes.descriptionServiceP2}>
+                         <b>Purpose of IELTS</b>
+                         </Typography>
+                        <Typography className={classes.descriptionServiceP2}>
+                          Candidates are tested in listening, reading, writing and speaking. All candidates take the same Listening and Speaking Modules. There is a choice between Academic and General Training in the Reading and Writing Modules.
+                        </Typography>
+
+                        <Typography className={classes.descriptionServiceP2}>
+                         <b>IELTS Exam format</b>
+                         </Typography>
+                        <Typography className={classes.descriptionServiceP2}>
+                         The total test time, excluding the speaking test, is two hours and 45 minutes. Your speaking test may be on the same day as the other parts, or on a different day.
+                        </Typography>
+
+                        <Typography className={classes.descriptionServiceP2}>
+                         <b>Where Can I Do The Test?</b>
+                         </Typography>
+                        <Typography className={classes.descriptionServiceP2}>
+                         Test Score
+                        </Typography>
+
+                        <Typography className={classes.descriptionServiceP2}>
+                         Band scores are recorded on a Test Report Form, showing overall ability as well as performance in listening, reading, writing and speaking from 1 to 9. The tests are designed to cover the full range of ability from non-user to expert user.
+                         </Typography>
+                        <Typography className={classes.descriptionServiceP2}>
+                           <b>WHO Recognize IELTS?</b>
+                         </Typography>
+
+                         <Typography className={classes.descriptionServiceP2}>
+                           <b> 
+                              IELTS is recognized for course admission by universities in many countries, including Australia, New Zealand, Canada, USA and the UK.
+                          </b>
+                         </Typography>
+
+
+
+
                       </Box>
                   </Container>
               </Box>
 
-             <Box className={classes.chooseYourDreamBoxTitle}>
-                <Typography className={classes.chooseYourDreamBoxTitleTitle}>Want to Study Abroad ?</Typography>
-             </Box>
+              <Box >
 
-             <Box className={classes.contryListe}>
+                  <Container className = {classes.Inquiry}>
+                      <Box className = {classes.InquiryText}> To resolve all issues pertaining to documentation in order to process the student visa 
+                          it would be better to approach Shree Sai Immigration to seek necessary guidan and advice.
+                        </Box>
+                        <Button className = {classes.InquiryButtn}>Inquiry</Button>
+                  </Container>
+              </Box>
 
-                <Container className={classes.centPerCentDisplay}>
-                    <Box className={classes.contryListeBox}>
-                      
-                    <Grid container>
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./can.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./alm.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./aus.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./bel.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./esp.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./fr.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./bra.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./lon.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./usa.png'}/>
-                         </Box>
-                       </Grid>
-
-                       
-                       
-                    </Grid>
-
-                    </Box>
-                </Container>
-
-             </Box>
-
-             <Box className={classes.footer}>
+              <Box className={classes.footer}>
                <Container >
                     <Box className={classes.footerBox}>
                           <Grid container>
