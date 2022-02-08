@@ -272,6 +272,12 @@ desContentGridBoxUl:{
   [theme.breakpoints.down('sm')]: {
     'font-size': '12px',
   }
+},
+linkStyle:{
+  '& a':{
+   'text-decoration': 'none',
+   'color': '#000',
+  }
 }
 
   
@@ -318,7 +324,7 @@ export default function Index(props) {
   
 
   return (
-      <div className = 'wrapper'>
+      <div className = {`wrapper ${classes.linkStyle}`}>
 
           <Nav/>
 
@@ -388,7 +394,10 @@ export default function Index(props) {
                          <Box className = {classes.InquiryText}> To resolve all issues pertaining to documentation in order to process the student visa 
                              it would be better to approach Shree Sai Immigration to seek necessary guidan and advice.
                           </Box>
+                          <Link href='/contact' >
+                          
                           <Button className = {classes.InquiryButtn}>Inquiry</Button>
+                        </Link>
                    </Container>
               </Box>
 

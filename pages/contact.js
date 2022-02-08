@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect,useState,useRef} from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -15,6 +15,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TextField from '@mui/material/TextField';
 import Nav from './nav'
+
 
 const useStyle = makeStyles(theme => ({
   title:{
@@ -294,6 +295,23 @@ contactFormContentInputCnt_:{
 contactFormContentInputCntInput : {
   'width': '100%',
   'background-color': '#fff'
+},
+errorMessage:{
+  'font-size': '19px',
+  'height': '75px',
+  'background-color': '#ff000099',
+  'display': 'flex',
+  'justify-content': 'center',
+  'align-items': 'center',
+  'border-radius': '10px',
+  'margin-top': '59px',
+  'color': '#fff',
+},
+linkStyle:{
+  '& a':{
+   'text-decoration': 'none',
+   'color': '#000',
+  }
 }
   
 })
@@ -301,8 +319,75 @@ contactFormContentInputCntInput : {
 
 export default function Index() {
   const classes = useStyle()
+
+  const [name,setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [subject, setSubject] = useState('')
+  const [contact, setContact] = useState('')
+  const [msg, setMsg] = useState('')
+  const [error,setError ] = useState(false)
+
+  const errorMessage = useRef();
+  
+  const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop) 
+ 
+
+  const sendMsg = async () => {
+
+    
+    const settings = {
+      method: 'POST',
+      headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+              },
+      body: JSON.stringify({
+          name:name,
+          email:email,
+          subject:subject,
+          contact:contact,
+          msg:msg
+      })
+     }
+    
+    if( name == '' || email == '' || subject == '' || contact == '' || msg == ''){
+      setError(true)
+      
+
+      window.scrollTo(0, 300)
+
+    }else{
+          
+      try {
+
+
+
+        const fetchResponse = await fetch(`/api/sendMessage`, settings);
+
+        const resp = await fetchResponse.json();
+
+
+        
+
+      } catch (e) {
+        return e;
+      }
+
+    }
+    
+
+     
+
+
+
+   
+ }
+
+
+
+
   return (
-      <div className = 'wrapper'>
+      <div className = {`wrapper ${classes.linkStyle}`}>
 
           <Nav/>
 
@@ -330,33 +415,52 @@ export default function Index() {
                             <Box className={classes.contactFormTile}>Fill up the given details we'll get in touch with you</Box>
                             <Box className={classes.contactFormTile}>We guide you to your goal. We deliver our proficiency in solving all your career related problems</Box>
                             <Box className={classes.contactFormTile}>When it comes to Immigration, our expertise can be trusted</Box>
+                               
 
                             <Box className={classes.contactFormContent}>
+                              
+                                   {
+                                     error == true  && (
+                                       <Box 
+                                       ref = {errorMessage}
+                                       className={classes.errorMessage}>veuillez remplir tous les champs</Box>
+                                     )
+                                   }                              
                                <Grid container className={classes.contactFormContentGrid}>
                                   <Grid xs = {12} lg={6} sm={6} md={6} >
                                      <Box className={classes.contactFormContentInputCnt}>
                                        <TextField 
                                            className = {classes.contactFormContentInputCntInput}
-                                          id="outlined-basic" label="Name" variant="outlined" />
+                                            id="outlined-basic" label="Name" variant="outlined"
+                                            onChange = {(e) => setName(e.target.value)}
+                                            value = {name}
+                                             />
                                       </Box>
                                   </Grid>
                                   <Grid xs = {12} lg={6} sm={6} md={6}>
                                      <Box className={classes.contactFormContentInputCnt}>
                                         <TextField 
                                          className = {classes.contactFormContentInputCntInput}
-                                        id="outlined-basic" label="E-mail" variant="outlined" />
+                                         id="outlined-basic" label="E-mail" variant="outlined" 
+                                         onChange = {(e) => setEmail(e.target.value)}
+                                         value = {email}/>
                                       </Box>
                                   </Grid>
                                </Grid>
                                <Box className={classes.contactFormContentInputCnt_}>
                                   <TextField
                                    className = {classes.contactFormContentInputCntInput}
-                                    id="outlined-basic" label="Subject" variant="outlined" />
+                                    id="outlined-basic" label="Subject" variant="outlined"
+                                    onChange = {(e) => setSubject(e.target.value)}
+                                    value = {subject}
+                                     />
                                 </Box>
                                <Box className={classes.contactFormContentInputCnt_}>
                                   <TextField
                                    className = {classes.contactFormContentInputCntInput}
-                                    id="outlined-basic" label="Contact" variant="outlined" />
+                                    id="outlined-basic" label="Contact Number" variant="outlined"
+                                    onChange={(e) => setContact(e.target.value)}
+                                    value = {contact} />
                                 </Box>
                                <Box className={classes.contactFormContentInputCnt_}>
                                   <TextField 
@@ -365,7 +469,9 @@ export default function Index() {
                                   label="Message"
                                   variant="outlined"
                                   multiline
-                                  rows={4} />
+                                  rows={4}
+                                  onChange={(e) => setMsg(e.target.value)}
+                                  value = {msg} />
                                 </Box>
                             </Box>
                       </Box>
@@ -377,7 +483,7 @@ export default function Index() {
 
                     <Container className = {classes.Inquiry}>
                          
-                          <Button className = {classes.InquiryButtn}>Inquiry</Button>
+                          <Button className = {classes.InquiryButtn} onClick = {() => sendMsg()}>Send Message</Button>
                    </Container>
               </Box>
 

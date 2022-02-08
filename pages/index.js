@@ -4,14 +4,9 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid'
 import ProTip from '../src/ProTip';
-import Link from '../src/Link';
 import Copyright from '../src/Copyright';
 import { makeStyles } from "@material-ui/core/styles";
-import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
-import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import Link from 'next/link'
 import Nav from './nav'
 
  
@@ -40,16 +35,14 @@ const useStyle = makeStyles(theme => ({
   background: 'url(home.jpg)',
  'background-repeat': 'no-repeat',
   overflow: 'hidden',
-  height: '85vh',
+  'height': '85vh',
   'background-position': 'center',
   'background-size': 'cover',
   display: 'flex',
   'justify-content': 'center',
   'align-items': 'center',
   color: '#fff',
-  [theme.breakpoints.down('md')]: {
-    'height': '40vh',
-  },
+  
   [theme.breakpoints.down('sm')]: {
     'height': '40vh',
   },
@@ -57,9 +50,12 @@ const useStyle = makeStyles(theme => ({
   
  },
  backgroundImageBoxTypo:{
-   fontSize:"40px",
+  'font-weight': 'bold',
+  'font-size': '49px',
+  'font-family': 'sans-serif',
+  'text-align':'center',
    [theme.breakpoints.down('md')]: {
-    'font-size': '1.5rem',
+    'font-size': '45px',
   },
   [theme.breakpoints.down('sm')]: {
     'font-size': '1rem',
@@ -253,7 +249,23 @@ const useStyle = makeStyles(theme => ({
   [theme.breakpoints.down('sm')]: {
     'text-align': 'center',
   }
- }
+ },
+ contryListeBoxImageText:{
+  'color': '#000',
+  'text-align': 'center'
+ },
+ linkStyle:{
+   '& a':{
+    'text-decoration': 'none',
+    'color': '#000',
+   }
+ },
+ linkStyle:{
+  '& a':{
+   'text-decoration': 'none',
+   'color': '#000',
+  }
+}
  
 })
 )
@@ -261,13 +273,13 @@ const useStyle = makeStyles(theme => ({
 export default function Index() {
   const classes = useStyle()
   return (
-      <div className = 'wrapper'>
+      <div className = {`wrapper ${classes.linkStyle}`}>
 
           <Nav/>
 
           <Box>
              <Box className = {classes.backgroundImageBox}>
-                 <Box className = {classes.backgroundImageBoxTypo}> VOYAGER DANS VOTRE PAYS DE REVE</Box>
+                 <Box className = {`${classes.backgroundImageBoxTypo} animation_text`}> VOYAGER  DANS <br/> VOTRE PAYS DE REVE</Box>
              </Box>
           </Box>
           
@@ -285,7 +297,9 @@ export default function Index() {
                              <img src={'./student.png'}/>
                            </Box>
                            <Box className={classes.ourserviceContainerItemDes}>
-                            <Typography> OUR SERVICES </Typography>
+                            <Typography  className={classes.linkStyle}> <Link
+                           
+                             href='/service'>  Student Visa </Link>  </Typography>
                            </Box>
                       </Grid>
 
@@ -294,7 +308,9 @@ export default function Index() {
                              <img src={'./migration.png'}/>
                            </Box>
                            <Box className={classes.ourserviceContainerItemDes}>
-                            <Typography > OUR SERVICES </Typography>
+                           <Typography> <Link 
+                           className={classes.linkStyle}
+                           href='/immigration'>  Immigration </Link>  </Typography>
                            </Box>
                       </Grid>
 
@@ -303,7 +319,9 @@ export default function Index() {
                              <img src={'./tourist.png'}/>
                            </Box>
                            <Box className={classes.ourserviceContainerItemDes}>
-                            <Typography> OUR SERVICES </Typography>
+                           <Typography> <Link 
+                           className={classes.linkStyle}
+                           href='/dependent-visa'> Dependent visa </Link>  </Typography>
                            </Box>
                       </Grid>
 
@@ -311,8 +329,11 @@ export default function Index() {
                           <Box className={classes.ourserviceContainerItemImage}>
                              <img src={'./work.png'}/>
                            </Box>
-                           <Box className={classes.ourserviceContainerItemDes}>
-                            <Typography> OUR SERVICES </Typography>
+                           <Box 
+                           className={classes.linkStyle}className={classes.ourserviceContainerItemDes}>
+                           <Typography> <Link 
+                           className={classes.linkStyle}
+                           href='/visitor-visa-dependent-visa'>  Visitor Visa </Link>  </Typography>
                            </Box>
                       </Grid>
                        
@@ -409,55 +430,74 @@ export default function Index() {
                     <Grid container>
                        <Grid  xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
-                           <img src={'./can.png'}/>
+                            <img src={'./can.png'}/>
+                            <Box className={classes.contryListeBoxImageText}>
+                             <Link
+                              className={classes.linkStyle}
+                              href={{ pathname: '/study', query: { country: 'canada' } }}> Canada </Link>
+                              
+                              </Box>
                          </Box>
                        </Grid>
 
                        <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./alm.png'}/>
+                           <Box className={classes.contryListeBoxImageText}>
+                             
+                             <Link 
+                              className={classes.linkStyle}
+                             href={{ pathname: '/study', query: { country: 'germany' } }}> Germany </Link>
+                             </Box>
                          </Box>
                        </Grid>
 
                        <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./aus.png'}/>
+                           
+                           <Box className={classes.contryListeBoxImageText}>
+                             
+                             <Link 
+                             className={classes.linkStyle}
+                             href={{ pathname: '/study', query: { country: 'germany' } }}> Australia </Link>
+                             </Box>
                          </Box>
                        </Grid>
 
-                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./bel.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./esp.png'}/>
-                         </Box>
-                       </Grid>
+ 
 
                        <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./fr.png'}/>
+                           <Box className={classes.contryListeBoxImageText}>
+                           <Link 
+                           className={classes.linkStyle}
+                           href={{ pathname: '/study', query: { country: 'france' } }}> Study in France</Link>
+                           </Box>
                          </Box>
                        </Grid>
 
-                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./bra.png'}/>
-                         </Box>
-                       </Grid>
+                       
 
                        <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./lon.png'}/>
+                           <Box className={classes.contryListeBoxImageText}>
+                           <Link
+                           className={classes.linkStyle}
+                            href={{ pathname: '/study', query: { country: 'uk' } }}> London</Link> </Box>
                          </Box>
                        </Grid>
 
                        <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./usa.png'}/>
+                           <Box className={classes.contryListeBoxImageText}>
+                            
+                             <Link
+                             className={classes.linkStyle}
+                              href={{ pathname: '/study', query: { country: 'usa' } }}>  United States</Link> </Box>
                          </Box>
                        </Grid>
 
@@ -498,8 +538,8 @@ export default function Index() {
                     </Box>
                 
                     <Copyright/>
-               </Container>
-          </Box>
+                  </Container>
+             </Box>
 
 
           </Box>

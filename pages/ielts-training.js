@@ -241,6 +241,12 @@ const useStyle = makeStyles(theme => ({
     'background-color': '#e30505',
     'color': '#fff',
     'padding': '11px 34px',
+  },
+  linkStyle:{
+    '& a':{
+     'text-decoration': 'none',
+     'color': '#000',
+    }
   }
 
   
@@ -250,7 +256,7 @@ const useStyle = makeStyles(theme => ({
 export default function Index() {
   const classes = useStyle()
   return (
-      <div className = 'wrapper'>
+      <div className = {`wrapper ${classes.linkStyle}`}>
 
           <Nav/>
 
@@ -331,7 +337,10 @@ export default function Index() {
                       <Box className = {classes.InquiryText}> To resolve all issues pertaining to documentation in order to process the student visa 
                           it would be better to approach Shree Sai Immigration to seek necessary guidan and advice.
                         </Box>
-                        <Button className = {classes.InquiryButtn}>Inquiry</Button>
+                        <Link href='/contact' >
+                          
+                          <Button className = {classes.InquiryButtn}>Inquiry</Button>
+                        </Link>
                   </Container>
               </Box>
 

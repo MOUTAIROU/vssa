@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid'
 import ProTip from '../src/ProTip';
-import Link from '../src/Link';
+import Link from 'next/link'
 import Copyright from '../src/Copyright';
 import { makeStyles } from "@material-ui/core/styles";
 import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
@@ -217,7 +217,18 @@ const useStyle = makeStyles(theme => ({
  descriptionServiceP2:{
   'padding': 'justify',
   'text-justify': 'inter-word'
- }
+ },
+ contryListeBoxImageText:{
+  'color': '#000',
+  'text-align': 'center'
+ },
+ linkStyle:{
+  '& a':{
+   'text-decoration': 'none',
+   'color': '#000',
+  }
+}
+ 
 
   
 })
@@ -226,7 +237,7 @@ const useStyle = makeStyles(theme => ({
 export default function Index() {
   const classes = useStyle()
   return (
-      <div className = 'wrapper'>
+      <div className = {`wrapper ${classes.linkStyle}`}>
 
           <Nav/>
 
@@ -279,57 +290,65 @@ export default function Index() {
                     <Box className={classes.contryListeBox}>
                       
                     <Grid container>
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
+                      
+                       <Grid  xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
-                           <img src={'./can.png'}/>
+                            <img src={'./can.png'}/>
+                            <Box className={classes.contryListeBoxImageText}>
+                             <Link href={{ pathname: '/study', query: { country: 'canada' } }}> Canada </Link>
+                              
+                              </Box>
                          </Box>
                        </Grid>
 
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
+                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./alm.png'}/>
+                           <Box className={classes.contryListeBoxImageText}>
+                             
+                             <Link href={{ pathname: '/study', query: { country: 'germany' } }}> Germany </Link>
+                             </Box>
                          </Box>
                        </Grid>
 
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
+                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./aus.png'}/>
+                           
+                           <Box className={classes.contryListeBoxImageText}>
+                             
+                             <Link href={{ pathname: '/study', query: { country: 'germany' } }}> Australia </Link>
+                             </Box>
                          </Box>
                        </Grid>
 
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./bel.png'}/>
-                         </Box>
-                       </Grid>
+ 
 
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./esp.png'}/>
-                         </Box>
-                       </Grid>
-
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
+                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./fr.png'}/>
+                           <Box className={classes.contryListeBoxImageText}>
+                           <Link href={{ pathname: '/study', query: { country: 'france' } }}> Study in France</Link>
+                           </Box>
                          </Box>
                        </Grid>
 
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
-                         <Box className={classes.contryListeBoxImage}>
-                           <img src={'./bra.png'}/>
-                         </Box>
-                       </Grid>
+                       
 
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
+                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./lon.png'}/>
+                           <Box className={classes.contryListeBoxImageText}>
+                           <Link href={{ pathname: '/study', query: { country: 'uk' } }}> London</Link> </Box>
                          </Box>
                        </Grid>
 
-                       <Grid xs={2} className={classes.contryListeBoxItem}>
+                       <Grid xs={12} sm={6} md={2} lg={2} className={classes.contryListeBoxItem}>
                          <Box className={classes.contryListeBoxImage}>
                            <img src={'./usa.png'}/>
+                           <Box className={classes.contryListeBoxImageText}>
+                            
+                             <Link href={{ pathname: '/study', query: { country: 'usa' } }}>  United States</Link> </Box>
                          </Box>
                        </Grid>
 

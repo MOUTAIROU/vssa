@@ -23,6 +23,52 @@
     width: 100%;
 }
 
+.navbar-content{
+    perspective: 1000px;
+}
+._devicelayout{
+    position: fixed;
+    width:100%;
+    z-index: 100000000;
+}
+
+.animation_text{
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    background: url('./public/back.png');
+    background-position: 0 0;
+    animation: back 20s linear infinite;
+    -webkit-background-clip: text;
+
+}
+
+@keyframes back {
+    100%{
+        background-position: 2000px 0;
+    }
+}
+
+
+.devicelayout_2{
+    transform-style: preserve-3d;
+    animation: spin 1s  linear;
+    animation-fill-mode: forwards;
+    position: fixed;
+    width: 100%;
+}
+
+@keyframes spin {
+    0%{
+        transform: translateY(-139px);
+        box-shadow: 0px 16px 8px -1px rgb(16 16 16 / 42%);
+    }
+  
+    100%{
+        transform: translateY(0px);
+        box-shadow: 0px 0px 8px -1px rgb(16 16 16 / 42%);
+    }
+  }
+
 .menu-area > ul > li {
     position: relative;
     cursor: pointer;

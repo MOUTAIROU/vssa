@@ -19,7 +19,7 @@ import Link from 'next/link'
 import CustomizedAccordions from './accordion'
 
 const useStyle = makeStyles(theme => ({
-  title:{
+ title:{
    textAlign: 'center',
    fontSize: '4em',
    textTransform: 'uppercase',
@@ -117,16 +117,42 @@ const useStyle = makeStyles(theme => ({
  }
  
  
- 
- 
- 
-
   
 })
 )
 
 export default function Index() {
   const classes = useStyle()
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [devicelayout, setDevicelayout] = useState('')
+  const [_devicelayout, set_Devicelayout] = useState('')
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+
+   
+    setScrollPosition(position);
+
+    
+
+    if(position > 200) {
+      
+      setDevicelayout('devicelayout_2')
+
+      set_Devicelayout('_devicelayout')
+    }else{
+      setDevicelayout('')
+      set_Devicelayout('')
+    }  
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [amimationShow, setAmimationShow] = useState('_amimationMenuHide')
@@ -158,8 +184,8 @@ export default function Index() {
     }
   }
   return (
-    <div>
-      <nav className={`${classes.navBar} devicelayout`}>
+    <div className={`${_devicelayout} navbar-content`}>
+      <nav className={`${classes.navBar} ${devicelayout} devicelayout`}>
                
                <Box className={classes.navBarContact}>
                  <Container maxWidth='lg' className={classes.centPerCent}>
@@ -213,7 +239,7 @@ export default function Index() {
                                      <div className = "menu-area">
            
                                         <ul>
-                                           <li> <a href="https://nextjs.org">Home</a></li>
+                                           <li> <Link href='/'>  Home </Link></li>
                                            
                                            <li>Our Service
                                                  <ul className='dropdown'>
@@ -261,7 +287,7 @@ export default function Index() {
             
          </nav>
            
-      <nav className='deviceresponsive'>
+      <nav className= {`deviceresponsive ${devicelayout}`}>
         <Box className={classes.navbarMobileBoxheader_first}>
               
               <div className='resp-nav-item'>
