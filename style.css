@@ -13,6 +13,18 @@
   background: #029bd5;
 }
 
+
+.accordion-item-text{
+    font-size: 1rem;
+}
+
+.accordion-item-text ul{
+    list-style: none;
+}
+
+.accordion-item-text ul li{
+    padding-bottom: 3px;
+}
 .menu-area > ul {
     list-style: none;
     padding: 0;
@@ -327,7 +339,7 @@
 
 .accordion-item-body{
     max-height: 0px;
-    overflow: hidden;
+    overflow: auto;
     transition: max-height 0.5s ease-out
 }
 .accordion-item-body-content{

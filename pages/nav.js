@@ -103,7 +103,6 @@ const useStyle = makeStyles(theme => ({
   'padding-right':' 10px'
  },
  navbarMobileBoxheader_first:{
-  'padding-top': '22px'
  },
  navbarMobileBoxheader:{
   'margin': '10px 0px',
@@ -114,6 +113,11 @@ const useStyle = makeStyles(theme => ({
  },
  navbarMobileTextLoco:{
   'text-align':'center'
+ },
+ navbarMobileSociaMediaColor:{
+  color: '#A5A5A5',
+  height: '50px',
+  backgroundColor: '#000'
  }
  
  
@@ -288,24 +292,35 @@ export default function Index() {
          </nav>
            
       <nav className= {`deviceresponsive ${devicelayout}`}>
-        <Box className={classes.navbarMobileBoxheader_first}>
+        
+        <Grid container className={classes.centPerCentDisplay}>
+            <Grid xs={6}>
               
-              <div className='resp-nav-item'>
-                  <EmailIcon/>
+                <Box className={classes.navbarMobileBoxheader_first}>
+              
+                  <div className='resp-nav-item'>
+                  <EmailIcon sx={{ fontSize: 15 }}/>
                   <div className='resp-nav-item-test'> xxxxx@gmail.com</div>
-              </div>
-        </Box>
-        <Box className={classes.navbarMobileBoxheader}>
-            
+                  </div>
+                </Box>
+        
 
-            <div className='resp-nav-item'>
-                  <PhoneIcon/>
-                  <div className='resp-nav-item-test'> 6363782937893</div>
-              </div>
+            </Grid>
+            <Grid xs={6}>
 
-        </Box>
+                <Box className={classes.navbarMobileBoxheader}>
+                
+                      <div className='resp-nav-item'>
+                        <PhoneIcon sx={{ fontSize: 15 }}/>
+                        <div className='resp-nav-item-test'> 6363782937893</div>
+                      </div>
+                </Box>
+
+            </Grid>
+        </Grid>
         <Box className={classes.navbarMobileBoxheader}>
-            <Grid container className={classes.centPerCentDisplay}>
+            <Grid container 
+             className={`${classes.centPerCentDisplay} ${classes.navbarMobileSociaMediaColor}`}>
     
                 <Grid xs={6}  className={classes.navbarMobileTextLeft}><InstagramIcon sx={{ fontSize: 30 }}/></Grid>
                 <Grid xs = {6}><FacebookIcon sx={{ fontSize: 30 }} /></Grid>

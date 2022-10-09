@@ -1,5 +1,5 @@
 import React ,{useState,useEffect,useRef} from 'react';
-
+import Link from 'next/link'
 
 
 
@@ -99,13 +99,24 @@ export default function CustomizedAccordions() {
               <div className='accordion-item-body'>
                  
                   <div className='accordion-item-body-content'>
-                       <div  className='accordion'>Study in USA</div>
-                       <div  className='accordion'>Study in UK</div>
-                       <div  className='accordion'>Study in Canada</div>
-                       <div  className='accordion'>Study in Australia</div>
-                       <div  className='accordion'>Study in Malaysia</div>
-                       <div  className='accordion'>Study in Germany</div>
-                       <div  className='accordion'>Study in France</div>
+                       <div  className='accordion accordion-item-text'>Student Visa
+                                                        <ul className=''>
+                                                                 <li>   <Link href={{ pathname: '/study', query: { country: 'usa' } }}>  Study in USA </Link>  </li>
+                                                                 <li> <Link href={{ pathname: '/study', query: { country: 'uk' } }}> Study in UK</Link></li>
+                                                                 <li> <Link href={{ pathname: '/study', query: { country: 'canada' } }}> Study in Canada</Link></li>
+                                                                 <li> <Link href={{ pathname: '/study', query: { country: 'australia' } }}> Study in Australia</Link></li>
+                                                                 <li> <Link href={{ pathname: '/study', query: { country: 'poland' } }}> Study in Poland</Link></li>
+                                                                 <li> <Link href={{ pathname: '/study', query: { country: 'malaysia' } }}> Study in Malaysia</Link></li>
+                                                                 <li> <Link href={{ pathname: '/study', query: { country: 'germany' } }}> Study in Germany</Link></li>
+                                                                 <li> <Link href={{ pathname: '/study', query: { country: 'france' } }}> Study in France</Link></li>
+           
+                                                           </ul>
+                       
+                       </div>
+                       <div  className='accordion accordion-item-text'> <Link href= '/visitor-visa-dependent-visa'>Visitor Visa</Link></div>
+                       <div  className='accordion accordion-item-text'> <Link href = '/dependent-visa'>Dependent Visa</Link></div>
+                       <div  className='accordion accordion-item-text'> <Link href = '/immigration'>Immigration</Link></div>
+                       <div  className='accordion accordion-item-text'> <Link href = '/ielts-training'>IELTS Training</Link></div>
                   </div>
               </div>
             </div>

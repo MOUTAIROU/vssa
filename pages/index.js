@@ -330,7 +330,7 @@ export default function Index() {
                              <img src={'./work.png'}/>
                            </Box>
                            <Box 
-                           className={classes.linkStyle}className={classes.ourserviceContainerItemDes}>
+                           className={classes.linkStyle}>
                            <Typography> <Link 
                            className={classes.linkStyle}
                            href='/visitor-visa-dependent-visa'>  Visitor Visa </Link>  </Typography>
