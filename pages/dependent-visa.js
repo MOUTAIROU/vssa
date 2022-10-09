@@ -7,6 +7,8 @@ import Copyright from '../src/Copyright';
 import { makeStyles } from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button'
 import Nav from './nav'
+import Link from 'next/link'
+
 
 const useStyle = makeStyles(theme => ({
   title:{
