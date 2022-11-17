@@ -75,10 +75,9 @@ export default function CustomizedAccordions() {
             <div 
             className='accordion-item'
             >
-              <div 
-               className= {` accordion-item-header ${activeP1}`} 
-               onClick={() => _activeDiv('panel_1')}>
-                 Home
+              <div className= {` accordion-item-header ${activeP1}`} >
+                 
+                 <Link href='/'>  Home </Link>
               </div>
 
               <div className='accordion-item-body'>
@@ -122,17 +121,12 @@ export default function CustomizedAccordions() {
             </div>
 
             <div 
-              className='accordion-item'
-              onClick={() => _activeDiv('panel_3')}>
+              className='accordion-item'>
               <div className= {` accordion-item-header ${activeP3}`}>
-                About Us
+                     <Link href = '/about-us'> About Us </Link>
               </div>
 
-              <div className='accordion-item-body'>
-                 
-                  <div className='accordion-item-body-content'>
-                  Fuerit toto in consulatu sine provincia, cui fuerit, antequam designatus est, decreta provincia. Sortietur an non? Nam et non sortiri absurdum est, et, quod sortitus sis, non habere. Proficiscetur paludatus? Quo? Quo pervenire ante certam diem non licebit. ianuario, Februario, provinciam non habebit; Kalendis ei denique Martiis nascetur repente provincia.                  </div>
-              </div>
+              
             </div>
             
             <div 
@@ -151,17 +145,12 @@ export default function CustomizedAccordions() {
             </div>
 
             <div 
-              className='accordion-item'
-              onClick={() => _activeDiv('panel_5')}>
+              className='accordion-item'>
               <div className= {` accordion-item-header ${activeP5}`}>
-                Contact
+                  <Link href = '/contact'> Contact </Link>
               </div>
 
-              <div className='accordion-item-body'>
-                 
-                  <div className='accordion-item-body-content'>
-                  Fuerit toto in consulatu sine provincia, cui fuerit, antequam designatus est, decreta provincia. Sortietur an non? Nam et non sortiri absurdum est, et, quod sortitus sis, non habere. Proficiscetur paludatus? Quo? Quo pervenire ante certam diem non licebit. ianuario, Februario, provinciam non habebit; Kalendis ei denique Martiis nascetur repente provincia.                  </div>
-              </div>
+              
             </div>
         </div>
 

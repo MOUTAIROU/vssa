@@ -13,6 +13,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MenuIcon from '@material-ui/icons/Menu';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link'
@@ -96,7 +97,11 @@ const useStyle = makeStyles(theme => ({
   'justify-content': 'flex-start',
   'align-items': 'center',
   height:"100%",
-  width:'100%' 
+  width:'100%',
+  '& img':{
+    'height': '75px',
+    'width': '75px'
+   } 
  },
  navbarMobileTextLeft:{
   'text-align': 'right',
@@ -112,7 +117,11 @@ const useStyle = makeStyles(theme => ({
    'text-align':'center'
  },
  navbarMobileTextLoco:{
-  'text-align':'center'
+  'text-align':'center',
+  '& img':{
+    'height': '50px',
+    'width': '50px'
+   }
  },
  navbarMobileSociaMediaColor:{
   color: '#A5A5A5',
@@ -176,16 +185,14 @@ export default function Index() {
        
     
     if(amimationShow == 'amimationMenuShow'){
-      setAmimationShow('amimationMenuHide')
+      setAmimationShow('_amimationMenuHide')
     }
 
-    if(amimationShow == 'amimationMenuHide'){
+    if(amimationShow == '_amimationMenuHide'){
       setAmimationShow('amimationMenuShow')
     }
 
-    if( amimationShow == '_amimationMenuHide'){
-      setAmimationShow('amimationMenuShow')
-    }
+    
   }
   return (
     <div className={`${_devicelayout} navbar-content`}>
@@ -234,7 +241,9 @@ export default function Index() {
                      <Grid container className={classes.centPerCent}>
            
                          <Grid item xs={6} className={classes.centPerCent}>
-                            <Box className={classes.listMenuNavBarLogo}>toto</Box>
+                            <Box className={classes.listMenuNavBarLogo}>
+                               <img src={'./logo.png'}/>
+                            </Box>
                          </Grid>
            
                          <Grid item xs={6}>
@@ -332,12 +341,14 @@ export default function Index() {
             <Grid container className={classes.centPerCentDisplay}>
     
                 <Grid xs={6}   className={classes.navbarMobileTextLoco}>
-                    Logo
+                     <img src={'./logo.png'}/>
                 </Grid>
                 <Grid xs = {6} className={classes.navbarMobileMenuIcon}>
-                  <MenuIcon 
-                    sx={{ fontSize: 30 }}
-                    onClick={() => _diplayAnimation()} />
+                  {
+                     amimationShow == "_amimationMenuHide" ? <MenuIcon  sx={{ fontSize: 30 }} onClick={() => _diplayAnimation()} />
+                     : <CancelIcon  sx={{ color: 'red',fontSize: 30 }}   onClick={() => _diplayAnimation()} />
+                     
+                  }
                   </Grid>
                 
             </Grid>

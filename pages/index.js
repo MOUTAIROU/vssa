@@ -279,7 +279,8 @@ export default function Index() {
 
           <Box>
              <Box className = {classes.backgroundImageBox}>
-                 <Box className = {`${classes.backgroundImageBoxTypo} animation_text`}> VOYAGER  DANS <br/> VOTRE PAYS DE REVE</Box>
+
+                 <Box className = {`${classes.backgroundImageBoxTypo} animation_text`}> TRAVEL TO <br/> YOUR DREAM COUNTRY</Box>
              </Box>
           </Box>
           
