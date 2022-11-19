@@ -241,9 +241,14 @@ export default function Index() {
                      <Grid container className={classes.centPerCent}>
            
                          <Grid item xs={6} className={classes.centPerCent}>
-                            <Box className={classes.listMenuNavBarLogo}>
+                         <Link href='/'>  
+
+                         <Box className={classes.listMenuNavBarLogo}>
                                <img src={'./logo.png'}/>
                             </Box>
+                         
+                          </Link>
+                            
                          </Grid>
            
                          <Grid item xs={6}>

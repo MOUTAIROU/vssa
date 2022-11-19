@@ -1,7 +1,12 @@
 .menu-area ul{
     list-style: none;
 }
-
+.menu-content{
+    background-color: #efefef;
+    height: 80vh;
+    z-index: 10000;
+    padding: 20px;
+}
 .menu-area{
     display: inline-block;
     height: 100%;
@@ -298,12 +303,8 @@
 
 
 .accordion{
-    width: 90%;
+    width: 100%;
     max-width: 100%;
-    margin: 2rem auto;
-    margin-bottom: 0px;
-    padding-bottom: 30px;
-
 }
 
 .accordion-item{
