@@ -12,6 +12,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MenuIcon from '@material-ui/icons/Menu';
 import CancelIcon from '@mui/icons-material/Cancel';
 
@@ -104,8 +105,7 @@ const useStyle = makeStyles(theme => ({
    } 
  },
  navbarMobileTextLeft:{
-  'text-align': 'right',
-  'padding-right':' 10px'
+  'text-align': 'center',
  },
  navbarMobileBoxheader_first:{
  },
@@ -227,6 +227,7 @@ export default function Index() {
                                     <Grid xs={2} className={classes.iconSocialMedia}>
                                        <InstagramIcon sx={{ fontSize: 30 }}/>
                                        <FacebookIcon sx={{ fontSize: 30 }}/>
+                                       <LinkedInIcon sx={{ fontSize: 30 }}/>
                                     </Grid>
                                     
                                </Grid>
@@ -336,18 +337,22 @@ export default function Index() {
             <Grid container 
              className={`${classes.centPerCentDisplay} ${classes.navbarMobileSociaMediaColor}`}>
     
-                <Grid xs={6}  className={classes.navbarMobileTextLeft}><InstagramIcon sx={{ fontSize: 30 }}/></Grid>
-                <Grid xs = {6}><FacebookIcon sx={{ fontSize: 30 }} /></Grid>
+                <Grid xs={4}  className={classes.navbarMobileTextLeft}><InstagramIcon sx={{ fontSize: 30 }}/></Grid>
+                <Grid xs = {4} className={classes.navbarMobileTextLeft}><FacebookIcon sx={{ fontSize: 30 }} /></Grid>
+                <Grid xs = {4} className={classes.navbarMobileTextLeft}><LinkedInIcon sx={{ fontSize: 30 }} /></Grid>
                 
             </Grid>
         </Box>
 
         <Box className={classes.navbarMobileBoxheader}>
             <Grid container className={classes.centPerCentDisplay}>
-    
-                <Grid xs={6}   className={classes.navbarMobileTextLoco}>
+
+               <Link href='/'> 
+                 <Grid xs={6}   className={classes.navbarMobileTextLoco}>
                      <img src={'./logo.png'}/>
                 </Grid>
+                 </Link>
+                
                 <Grid xs = {6} className={classes.navbarMobileMenuIcon}>
                   {
                      amimationShow == "_amimationMenuHide" ? <MenuIcon  sx={{ fontSize: 30 }} onClick={() => _diplayAnimation()} />
